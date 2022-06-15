@@ -1,0 +1,10 @@
+{% extends 'base.html' %}
+{% block title_block %}Profile{% endblock title_block %}
+{% block body_block %}
+<h2>User Profile</h2>
+<p>Username: {{user.username}} </p>
+<p>Email: {{user.email}} </p>
+<p>Name: {{user.first_name}} {{user.last_name}} </p>
+<a class="btn btn-warning btn-sm" href="{% url 'App_Login:user_change' %}">Change Profile Info</a>
+<a href="{% url 'index' %}" class="btn btn-danger btn-sm">Back</a>
+{% endblock body_block %}
