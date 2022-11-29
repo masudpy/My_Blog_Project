@@ -14,28 +14,36 @@
 <hr>
 <br>
 <div class="row shadow p-3 mb-5 rounded" style="box-shadow: 0 .5rem 1rem rgba(230, 35, 21, .25)!important;}">
-    <div class="col-md-3 offset-md-1 shadow p-3 mb-5 rounded">
+    <div class="col-md-3 shadow p-3 mb-5 rounded">
         {% if user.user_profile %}
-            <img src='/media/{{user.user_profile.profile_pic}}' class="rounded-circle" width="100%" height="80%">
+            <img src='/media/{{user.user_profile.profile_pic}}' class="rounded-circle" width="100%" height="70%">
             <br>
             <br>
             <center class="text-center">
-                <a href="{% url 'App_Login:change_pro_pic' %}" class="btn btn-info btn-sm">Change Profile Picture</a>
+                <a href="{% url 'App_Login:change_pro_pic' %}" class="btn btn-primary btn-sm">Change Profile Picture</a>
             </center>
             <br>
         {% else %}
             <img src='/media/profile_pics/avatar-male.jpg' class="rounded-circle" width="100px">
             <br>
             <br>
-            <a href="{% url 'App_Login:add_pro_pic' %}" class="btn btn-info btn-sm">Change Profile Picture</a>
+            <a href="{% url 'App_Login:add_pro_pic' %}" class="btn btn-primary btn-sm">Change Profile Picture</a>
         {% endif %}
     </div>
-    <div class="col-md-6 offset-md-1 shadow p-3 mb-5 rounded text-center">
-        <p style="">Username: <span>@{{ user.username }}</span> </p>
-    <p style="">Email: {{ user.email }}</p>
-    <p style="">Name: {{user.first_name }} {{ user.last_name }}</p><hr>
-    <br><br><br><br>
-    <a href="{% url 'App_Login:user_change' %}" class="btn btn-warning btn-sm">Change Profile Info</a>
+    <div class="col-md-8 offset-md-1 shadow p-3 mb-5 rounded">
+        <div class="row">
+            <div class="col-8">
+                <p style=""><span style="font-weight: bold">Name: {{user.first_name }} {{ user.last_name }}</span> <span> (@{{ user.username }})</span></p>
+                
+                <p>Email: {{ user.email }}</p>
+            </div>
+            <div class="col-2">
+                <a href="{% url 'App_Login:user_change' %}" class="btn btn-warning btn-sm">Change User</a>
+            </div>
+        </div><hr>
+    <p>City : {{user.user_profile.city}}</p>
+    <p>Country : {{user.user_profile.country}}</p>
+    <a href="{% url 'App_Login:changeinfo' %}" class="btn btn-primary btn-sm">Change Profile Info</a>
     </div>
     <div class="row">
         <div class="text-center">

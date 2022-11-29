@@ -10,5 +10,6 @@ urlpatterns = [
     path('password/', views.pass_change, name='pass_change'),
     path('add-picture/', views.add_pro_pic, name='add_pro_pic'),
     path('change-picture/', views.change_pro_pic, name='change_pro_pic'),
+    path('change-info/', views.ProfileInfoChange, name='changeinfo'),
 ]
 

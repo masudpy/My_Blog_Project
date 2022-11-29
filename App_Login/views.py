@@ -4,7 +4,8 @@ from django.urls import reverse
 from django.contrib.auth.forms import AuthenticationForm, PasswordChangeForm
 from django.contrib.auth import login, authenticate, logout
 from django.contrib.auth.decorators import login_required
-from App_Login.forms import SignUpForm,UserProfileChange,ProfilePic
+from App_Login.forms import SignUpForm,UserProfileChange,ProfilePic,ProfileInfo
+from .models import UserProfile
 from django.contrib import messages
 ##### SignUp #####
 def sign_up(request):
@@ -55,6 +56,18 @@ def user_change(request):
             form = UserProfileChange(instance=current_user)
             messages.success(request,'Update profile..!')
             # return HttpResponseRedirect(reverse('App_Login:profile'))
+    return render(request, 'App_Login/change_profile.html', context={'form':form})
+
+@login_required
+def ProfileInfoChange(request):
+    profile = UserProfile.objects.get(user=request.user)
+    form = ProfileInfo(instance=profile)
+    if request.method == "POST":
+        form = ProfileInfo(request.POST, instance=profile)
+        if form.is_valid():
+            form.save()
+            form = ProfileInfo(instance=profile)
+            messages.success(request,'Update profile..!')
     return render(request, 'App_Login/change_profile.html', context={'form':form})
 
 
