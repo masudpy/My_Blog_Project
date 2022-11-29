@@ -18,40 +18,42 @@
     </title>
 </head>
 <body>
-    <nav class="navbar navbar-expand-sm navbar-dark bg-dark">
-        <div class='collapse navbar-collapse' id='navbarNav'>
-            <ul class='navbar-nav ml-auto'>
-                <li class='nav-item active'>
-                    <a class='nav-link' href="{% url 'index' %}"><img src="/media/logo.png" width="50px"></a>
-                    
-                </li>
-                {% if request.user.is_authenticated %}
-                <li class="nav-item dropdown">
-                    <a style="margin-top:10px;" class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">
-                      @{{user.username}}
-                    </a>
-                    <ul class="dropdown-menu" aria-labelledby="navbarDropdown">
-                        <li><a class="dropdown-item" href="{% url 'App_Blog:create_blog' %}">Write Blog</a></li>
-                        <li><a class="dropdown-item" href="{% url 'App_Blog:my_blogs' %}">My Blogs</a></li>
-                      <li><a class="dropdown-item" href="{% url 'App_Login:profile' %}">Your Profile</a></li>
-                      <li><a class="dropdown-item" href="{% url 'App_Login:pass_change' %}">Change Password</a></li>
-                      <li><hr class="dropdown-divider"></li>
-                      <li><a class="dropdown-item" href="{% url 'App_Login:logout' %}">Logout</a></li>
-                    </ul>
-                  </li>
-                  {% comment %} <li class='nav-item' style="margin-top:10px;">
-                    <a class='nav-link' href="{% url 'App_Login:signup' %}"><b>Product</b></a>
-                </li> {% endcomment %}
-                {% else %}
-                <li class='nav-item'>
-                    <a class='nav-link' href="{% url 'App_Login:signup' %}">Signup</a>
-                </li>
-                <li class='nav-item'>
-                    <a class='nav-link' href="{% url 'App_Login:login' %}">Login</a>
-                </li>
-                {% endif %}
-            </ul>
-    
+    <nav class="navbar navbar-expand-sm navbar-dark bg-dark sticky-top">
+        <div class="container">
+            <div class='collapse navbar-collapse' id='navbarNav'>
+                <ul class='navbar-nav ml-auto'>
+                    <li class='nav-item active'>
+                        <a class='nav-link' href="{% url 'index' %}"><img src="/media/logo.png" width="50px"></a>
+                        
+                    </li>
+                    {% if request.user.is_authenticated %}
+                    <li class="nav-item dropdown">
+                        <a style="margin-top:10px;" class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+                          @{{user.username}}
+                        </a>
+                        <ul class="dropdown-menu" aria-labelledby="navbarDropdown">
+                            <li><a class="dropdown-item" href="{% url 'App_Blog:create_blog' %}">Write Blog</a></li>
+                            <li><a class="dropdown-item" href="{% url 'App_Blog:my_blogs' %}">My Blogs</a></li>
+                          <li><a class="dropdown-item" href="{% url 'App_Login:profile' %}">Your Profile</a></li>
+                          <li><a class="dropdown-item" href="{% url 'App_Login:pass_change' %}">Change Password</a></li>
+                          <li><hr class="dropdown-divider"></li>
+                          <li><a class="dropdown-item" href="{% url 'App_Login:logout' %}">Logout</a></li>
+                        </ul>
+                      </li>
+                      {% comment %} <li class='nav-item' style="margin-top:10px;">
+                        <a class='nav-link' href="{% url 'App_Login:signup' %}"><b>Product</b></a>
+                    </li> {% endcomment %}
+                    {% else %}
+                    <li class='nav-item'>
+                        <a class='nav-link' href="{% url 'App_Login:signup' %}">Signup</a>
+                    </li>
+                    <li class='nav-item'>
+                        <a class='nav-link' href="{% url 'App_Login:login' %}">Login</a>
+                    </li>
+                    {% endif %}
+                </ul>
+        
+            </div>
         </div>
     </nav>
 <div class="container" style="padding-top:20px">
