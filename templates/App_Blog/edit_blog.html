@@ -13,7 +13,7 @@
             {% csrf_token %}
             <br>
             <button class="btn btn-success btn-sm" type="submit" name="button">Update</button>
-            <a class="btn btn-danger btn-sm" href="{% url 'App_Blog:my_blogs' %}">Cancle</a>
+            <a class="btn btn-danger btn-sm" href="{% url 'App_Blog:my_blogs' %}">Cancel</a>
         </form>
         {% else %}
         <p>You are not allowed to view this page... 404</p>

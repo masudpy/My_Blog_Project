@@ -26,4 +26,7 @@ class ProfilePic(forms.ModelForm):
 class ProfileInfo(forms.ModelForm):
     class Meta:
         model = UserProfile
-        fields = ('city','country')
+        fields = ('city','country','about')
+        widgets = {
+            'about': forms.Textarea(attrs={'class':'form-control', 'rows':'4'})
+        }

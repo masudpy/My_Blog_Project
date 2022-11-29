@@ -41,8 +41,10 @@
                 <a href="{% url 'App_Login:user_change' %}" class="btn btn-warning btn-sm">Change User</a>
             </div>
         </div><hr>
-    <p>City : {{user.user_profile.city}}</p>
-    <p>Country : {{user.user_profile.country}}</p>
+        {% if user.user_profile.about %}<p>About : {{user.user_profile.about}}</p>{% endif %}
+        {% if user.user_profile.city %}<p>City : {{user.user_profile.city}}</p>{% endif %}
+        {% if user.user_profile.country %}<p>Country : {{user.user_profile.country}}</p>{% endif %}
+        
     <a href="{% url 'App_Login:changeinfo' %}" class="btn btn-primary btn-sm">Change Profile Info</a>
     </div>
     <div class="row">
