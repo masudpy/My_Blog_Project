@@ -2,15 +2,16 @@
 {% load crispy_forms_tags %}
 {% block title_block %} Profile {% endblock %}
 {% block body_block %}
-<div class="row offset-2 text-center" style="padding:2rem;backgound:#f0f2f5 !important">
+<div class="row offset-2" style="padding:2rem;backgound:#f0f2f5 !important">
   <div class="col-10 shadow p-3 mb-5 rounded" style="border:2px solid #f0f2f5;padding:2rem">
-    <h2>Add Your Profile Picture:</h2>
-<form method="POST" enctype="multipart/form-data">
-  {{form|crispy}}
+    <h2 class="text-center">Add Your Profile Picture:</h2><hr>
+<form method="POST" enctype="multipart/form-data" class="offset-md-1">
   {% csrf_token %}
+  {{form|crispy}}
   <br>
   <button type="submit" class="btn btn-success btn-sm">Add</button>
   <a href="{% url 'App_Login:profile' %}" class="btn btn-danger btn-sm">Back</a>
+  <br><br>
 </form>
   </div>
 </div>

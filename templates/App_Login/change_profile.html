@@ -7,14 +7,17 @@
         <center class='text-danger'>{{message}}</center>
     {% endfor %}
 {% endif %}
-<div class="row shadow p-3 mb-5 rounded">
-    <form method="POST" novalidate>
-        {{form|crispy}}
-        {% csrf_token %}
-        <br>
-        <button type="submit" class="btn btn-success btn-sm">Change</button>
-        <a href="{% url 'App_Login:profile' %}" class="btn btn-danger btn-sm">Back</a>
-    </form>
+<div class="row">
+    <div class="col-md-8 offset-md-2 shadow mt-5 px-5 py-3 mb-5 rounded">
+        <h3>Change Information</h3><hr>
+        <form method="POST" novalidate>
+            {{form|crispy}}
+            {% csrf_token %}
+            <br>
+            <button type="submit" class="btn btn-success btn-sm">Change</button>
+            <a href="{% url 'App_Login:profile' %}" class="btn btn-danger btn-sm">Back</a>
+        </form>
+    </div>
 </div>
 <br>
 

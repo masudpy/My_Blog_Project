@@ -24,15 +24,19 @@
                 <ul class='navbar-nav ml-auto'>
                     <li class='nav-item active'>
                         <a class='nav-link' href="{% url 'index' %}"><img src="/media/logo.png" width="50px"></a>
-                        
                     </li>
                     {% if request.user.is_authenticated %}
+                    {% if request.user.is_authenticated %}
+                    <li class='nav-item active mt-3'>
+                        <a class='nav-link' href="{% url 'App_Blog:create_blog' %}">Write Blog</a>
+                    </li>
+                    {% endif %}
                     <li class="nav-item dropdown">
-                        <a style="margin-top:10px;" class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+                        <a class="nav-link dropdown-toggle mt-3" href="#" id="navbarDropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">
                           @{{user.username}}
                         </a>
                         <ul class="dropdown-menu" aria-labelledby="navbarDropdown">
-                            <li><a class="dropdown-item" href="{% url 'App_Blog:create_blog' %}">Write Blog</a></li>
+                            {% comment %} <li><a class="dropdown-item" href="{% url 'App_Blog:create_blog' %}">Write Blog</a></li> {% endcomment %}
                             <li><a class="dropdown-item" href="{% url 'App_Blog:my_blogs' %}">My Blogs</a></li>
                           <li><a class="dropdown-item" href="{% url 'App_Login:profile' %}">Your Profile</a></li>
                           <li><a class="dropdown-item" href="{% url 'App_Login:pass_change' %}">Change Password</a></li>
@@ -44,10 +48,10 @@
                         <a class='nav-link' href="{% url 'App_Login:signup' %}"><b>Product</b></a>
                     </li> {% endcomment %}
                     {% else %}
-                    <li class='nav-item'>
+                    <li class='nav-item mt-3'>
                         <a class='nav-link' href="{% url 'App_Login:signup' %}">Signup</a>
                     </li>
-                    <li class='nav-item'>
+                    <li class='nav-item mt-3'>
                         <a class='nav-link' href="{% url 'App_Login:login' %}">Login</a>
                     </li>
                     {% endif %}

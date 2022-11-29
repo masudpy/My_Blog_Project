@@ -7,15 +7,21 @@
     Account Create Successfully! <a href="{% url 'App_Login:login' %}">Login Here</a>
 </div>
 {% else %}
-<form method="POST" novalidate>
-    {% csrf_token %}
-    <br>
-    {{form|crispy}}
-    <br>
-    <button type="submit" class="btn btn-success btn-sm">Create Account</button>
-</form><br>
-<p>Already have an account?<a href="{% url 'App_Login:login' %}">Login Here</a></p>
-{% endif %}
+<div class="row">
+    <div class="col-8 offset-md-2 shadow p-3 mb-5 rounded">
+        <h3 class="text-center">Signup</h3><hr>
+        <form method="POST" novalidate>
+            {% csrf_token %}
+            <br>
+            {{form|crispy}}
+            <br>
+            <button type="submit" class="btn btn-success btn-sm">Create Account</button>
+        </form><br>
+        <p>Already have an account?<a href="{% url 'App_Login:login' %}">Login Here</a></p>
+        {% endif %}
+    </div>
+</div>
+
 
 
 

@@ -2,13 +2,17 @@
 {% load crispy_forms_tags %}
 {% block title_block %}Login{% endblock title_block %}
 {% block body_block %}
-<h2>Login:</h2>
-<form method="POST" novalidate>
-    {% csrf_token %}
-    <br>
-    {{form|crispy}} <br>
-    <button type="submit" class="btn btn-primary btn-sm">Login</button>
-</form> <br>
-<p>You have not a account?<a href="{% url 'App_Login:signup' %}">Signup Here</a></p>
 
+<div class="row">
+    <div class="col-8 offset-md-2 shadow p-3 mb-5 rounded">
+        <h3 class="text-center">Login</h3><hr>
+        <form method="POST" novalidate>
+            {% csrf_token %}
+            <br>
+            {{form|crispy}} <br>
+            <button type="submit" class="btn btn-primary btn-sm">Login</button>
+        </form> <br>
+        <p>You have not a account?<a href="{% url 'App_Login:signup' %}">Signup Here</a></p>
+    </div>
+</div>
 {% endblock body_block %}
