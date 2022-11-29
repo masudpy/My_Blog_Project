@@ -4,7 +4,8 @@
 {{user}}
 {% endblock title_block %}
 {% block body_block %}
-    {% for blog in user.post_author.all %}
+{% for blog in user.post_author.all %}
+    <div class="row shadow p-3 mb-5 rounded">
         <h3>{{blog.blog_title}}</h3>
         <h6><i>{{blog.publish_date}}</i></h6>
         <div class="row">
@@ -18,7 +19,7 @@
         </div><br>
         <a href="{% url 'App_Blog:edit_blog' pk=blog.pk %}">Edit Post</a><hr>
         <br><br>
-
+    </div>
     {% endfor %}
 
 {% endblock body_block %}

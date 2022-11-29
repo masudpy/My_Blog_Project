@@ -2,13 +2,20 @@
 {% load crispy_forms_tags %}
 {% block block_title %}Change Profile{% endblock block_title %}
 {% block body_block %}
-
-<form method="POST" novalidate>
-    {{form|crispy}}
-    {% csrf_token %}
-    <br>
-    <button type="submit" class="btn btn-success btn-sm">Change</button>
-    <a href="{% url 'App_Login:profile' %}" class="btn btn-danger btn-sm">Back</a>
-</form><br>
+{% if messages %}
+    {% for message in messages %}
+        <center class='text-danger'>{{message}}</center>
+    {% endfor %}
+{% endif %}
+<div class="row shadow p-3 mb-5 rounded">
+    <form method="POST" novalidate>
+        {{form|crispy}}
+        {% csrf_token %}
+        <br>
+        <button type="submit" class="btn btn-success btn-sm">Change</button>
+        <a href="{% url 'App_Login:profile' %}" class="btn btn-danger btn-sm">Back</a>
+    </form>
+</div>
+<br>
 
 {% endblock body_block %}

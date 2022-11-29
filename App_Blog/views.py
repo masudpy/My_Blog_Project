@@ -53,6 +53,7 @@ def blog_details(request, slug):
             return HttpResponseRedirect(reverse('App_Blog:blog_details', kwargs={'slug':slug}))
     return render(request, 'App_Blog/blog_details.html', context={'blog':blog, 'comment_form':comment_form,'liked':liked,})
 
+
 @login_required
 def liked(request,pk):
     blog = Blog.objects.get(pk=pk)
